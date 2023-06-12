@@ -28,7 +28,7 @@ def load_variables(s):
     if format_variables(s):
         instance_metadata=ec2().describe_instances(InstanceIds=[get_instance_id()])
         tags = instance_metadata['Reservations'][0]['Instances'][0]['Tags']
-        s.format(**{tag['Key']: tag['Value'] for tag in tags})
+        return s.format(**{tag['Key']: tag['Value'] for tag in tags})
     else:
         return s
 
