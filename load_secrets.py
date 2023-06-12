@@ -41,5 +41,4 @@ if __name__ == "__main__":
     secret_id = load_variables(sys.argv[1])
     secrets = get_secrets(secret_id)
     for k, v in secrets.items():
-        v = v.replace('"', '\\"')
-        print(f"export {k}=\"{v}\"")
+        print(f"export {k}={v}")
